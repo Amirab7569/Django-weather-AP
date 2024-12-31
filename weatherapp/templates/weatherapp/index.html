@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <style> 
+        .center {
+            margin: auto;
+            width: 50%;
+            border: 5px solid;
+            padding: 30px;
+        }
+
+        .container{
+            width: 35%;
+            margin: 0 auto;
+        }
+
+        h2{
+            text-align: center;
+        }
+        .image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 35%;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <h1 style="text-align: center;">  weather information </h1>
+        <form action="" method="post" class="container">
+            {% csrf_token %}
+            <input type="text" placeholder="enter city" name="city">
+            <input type="submit" value="enter">
+        </form>
+        <h2> {{ description }}  </h2>
+        <h2> {{ temp }}  </h2>
+        <img src="https://openweathermap.org/img/wn/{{icon}}@2x.png" alt="Not Found" class="image">
+        <p style="text-align: center;"> {{ city }} </p>
+        <small> {{ day }}  </small>
+    </div>
+</body>
+</html>
